@@ -27,7 +27,8 @@ public class SimplePositionProvider extends PositionProvider implements Location
 
     public SimplePositionProvider(Context context, PositionListener listener) {
         super(context, listener);
-        if (!type.equals(LocationManager.NETWORK_PROVIDER)) {
+        if (!LocationManager.NETWORK_PROVIDER.equals(type)
+                && !"fused".equals(type)) {
             type = LocationManager.GPS_PROVIDER;
         }
     }

@@ -5,12 +5,14 @@
         <item>gps</item>
         <item>network</item>
         <item>mixed</item>
+        <item>fused</item>
     </string-array>
 
     <string-array name="settings_provider_names">
         <item>@string/settings_provider_gps</item>
         <item>@string/settings_provider_network</item>
         <item>@string/settings_provider_mixed</item>
+        <item>@string/settings_provider_fused</item>
     </string-array>
 
 </resources>

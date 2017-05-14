@@ -31,6 +31,7 @@
   <string name="settings_provider_gps">GPS provider</string>
   <string name="settings_provider_network">Network provider</string>
   <string name="settings_provider_mixed">Mixed provider</string>
+  <string name="settings_provider_fused">Fused provider</string>
   <string name="settings_foreground_title">Foreground service</string>
   <string name="settings_foreground_summary">Increase service priority</string>
   <string name="error_invalid_address">Invalid server address</string>
