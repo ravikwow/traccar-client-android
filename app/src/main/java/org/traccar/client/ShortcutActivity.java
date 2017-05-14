@@ -56,6 +56,9 @@ public class ShortcutActivity extends Activity {
         if (location == null) {
             location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
         }
+        if (location == null && android.os.Build.VERSION.SDK_INT >= 8) {
+            location = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
+        }
 
         if (location != null) {
 
