@@ -21,6 +21,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 @SuppressWarnings("MissingPermission")
 public class SimplePositionProvider extends PositionProvider implements LocationListener {
@@ -38,6 +39,7 @@ public class SimplePositionProvider extends PositionProvider implements Location
             locationManager.requestLocationUpdates(type, requestInterval, 0, this);
         } catch (IllegalArgumentException e) {
             Log.w(TAG, e);
+            Toast.makeText(context, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 

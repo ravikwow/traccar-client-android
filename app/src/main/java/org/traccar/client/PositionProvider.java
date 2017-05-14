@@ -39,7 +39,7 @@ public abstract class PositionProvider {
 
     private final PositionListener listener;
 
-    private final Context context;
+    protected final Context context;
     protected final LocationManager locationManager;
 
     private String deviceId;
