@@ -64,7 +64,8 @@ public class TrackingController implements PositionProvider.PositionListener, Ne
         this.context = context;
         handler = new Handler();
         preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        if (preferences.getString(MainActivity.KEY_PROVIDER, "gps").equals("mixed")) {
+        if (preferences.getString(MainActivity.KEY_PROVIDER,
+                context.getString(R.string.location_provider)).equals("mixed")) {
             positionProvider = new MixedPositionProvider(context, this);
         } else {
             positionProvider = new SimplePositionProvider(context, this);

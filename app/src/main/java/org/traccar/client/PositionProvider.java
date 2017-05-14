@@ -69,7 +69,7 @@ public abstract class PositionProvider {
             requestInterval = interval;
         }
 
-        type = preferences.getString(MainActivity.KEY_PROVIDER, "gps");
+        type = preferences.getString(MainActivity.KEY_PROVIDER, context.getString(R.string.location_provider));
     }
 
     public abstract void startUpdates();
