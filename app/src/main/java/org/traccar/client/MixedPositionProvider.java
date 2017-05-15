@@ -22,6 +22,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 @SuppressWarnings("MissingPermission")
 public class MixedPositionProvider extends PositionProvider implements LocationListener, GpsStatus.Listener {
@@ -42,6 +43,7 @@ public class MixedPositionProvider extends PositionProvider implements LocationL
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, requestInterval, 0, this);
         } catch (IllegalArgumentException e) {
             Log.w(TAG, e);
+            Toast.makeText(context, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -75,8 +77,13 @@ public class MixedPositionProvider extends PositionProvider implements LocationL
                 }
             };
 
-            locationManager.requestLocationUpdates(
-                    LocationManager.NETWORK_PROVIDER, requestInterval, 0, backupListener);
+            try {
+                locationManager.requestLocationUpdates(
+                        LocationManager.NETWORK_PROVIDER, requestInterval, 0, backupListener);
+            } catch (IllegalArgumentException e) {
+                Log.w(TAG, e);
+                Toast.makeText(context, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
